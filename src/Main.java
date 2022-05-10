@@ -5,6 +5,11 @@ import java.util.*;
 
 public class Main {
 
+    /*
+    przykładowa konfiguracja:
+    iris 3
+     */
+
     public static void main(String[] args) {
 
         String irisFileName = args[0];
@@ -153,6 +158,7 @@ public class Main {
                     System.out.println(iris.getType() + ", cluster: " + iris.getMyCluster());
                 }
 
+                double totalSum = 0d;
                 //Count avg. distance from centroid
                 for(Centroid centroid : centroids) {
 
@@ -173,7 +179,11 @@ public class Main {
                     System.out.println("Sum of distances in cluster number " + centroid.getClusterNum() +
                             " = " + distSum);
 
+                    totalSum += distSum;
+
                 }
+
+                System.out.println("Total sum of distances in clusters = " + totalSum);
 
                 System.out.println("");
                 System.out.println("-----------------------------");
